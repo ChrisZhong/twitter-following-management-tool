@@ -1,0 +1,30 @@
+sudo: false # use container-based infrastructure
+
+language: java
+jdk:
+  - oraclejdk8 # test against version 1.8
+
+cache:
+  directories:
+    - '$HOME/.gradle' # cache the gradle cache directory
+    - '$HOME/.m2/repository' # cache the maven artifacts
+
+before_install:
+  - chmod +x gradlew # make gradlew script executable
+
+install:
+  - ./gradlew assemble
+
+script:
+  - ./gradlew check jacocoTestReport # perform tests and compile jacoco test reports
+
+after_script:
+  - ./gradlew coveralls # collect jacoco reports from subprojects send them to coveralls
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 118IkcmJS/liFU0xn+CqE7mo8iyowfZSQv3q0fsBRwlrPjct15nk/F1CG8IEtjfXZA5oTI+3Ro441ufMrEa3xdAmf9T26OQgVSLH2QnHvR8pQSeldAVTPNKmp6N6rR97Q69HRwTPavCN5a3709S/gj8lWHNkPIIiMdGngQjFoz9TwEAHxfRHcCYrrgq/HO6CU4wUEoqnR6pS5/5uadBDEod57rbLlwN+aJBnavOPFarKmtv6IfaSN5ltf9odnmtitHteWJwyJ62HjEb/Kf/9a8RdcK6c/nPTgdW5r+Cjg0GdoxfRT618IgsVB4wmuygAy0eLxf1QeDgq/6Afd4hVu8DCbCqcpCWnS9hP1XPEH4p3Rl2p7F04m6sY9FchW30xD+OQgCJyyPdFEYviLtiTU5tNVKXsm2T0RXR9eQmPfvaT3C7Eesa4Gx2EMmiSqnpVofc9C02ZUSIhZ1tKlOJB5F9tC1GVfrp2PPD74kEwlHbPha0WTE+AAyqyUXEzQr2Ll8DXjNN16ML6LeDfhO4VU/zTrcUmhu3e19Mid1Z4/J3RebtUu+EEPtzrQNtmcRnkz765ath0fNlRoZlBmSn2J5SP2WMxSgfsTPQuNBbY3WG7tYpTyZ4FuKeavyENC5q/jF+TbQdRC2bO53E92Tv6BNmgPJoywkM4vQCJNT4fa5Y=
+  app: enigmatic-anchorage-9135
+  on:
+    repo: ChrisZhong/twitter-following-management-tool

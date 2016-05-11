@@ -1,0 +1,34 @@
+<html>
+<head>
+<title th:text="#{start.title}">Title</title>
+</head>
+<body>
+	<h3>
+		<img alt="" src="" th:src="@{${twitterProfile.profileImageUrl}}" /> <a href="" th:href="@{${twitterProfile.profileUrl}}" th:text="${twitterProfile.name}">Name</a>!!!
+	</h3>
+
+	<h4 th:text="#{start.h4(${friends.size()},${twitterProfile.friendsCount})}">These are 1 of your 1 friends:</h4>
+
+	<table>
+		<thead>
+			<tr>
+				<th th:text="#{start.table.name}">Name</th>
+				<th th:text="#{start.table.verified}">Verified</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="friend : ${friends}">
+				<td><img alt="" src="" th:src="@{${friend.profileImageUrl}}" /> <a href="" th:href="@{${friend.profileUrl}}" th:text="${friend.name}">Name</a></td>
+				<td th:text="${friend.verified}">Yes</td>
+			</tr>
+		</tbody>
+	</table>
+	<table>
+		<tr>
+			<td th:unless="${previous} == 0"><a href="/?cursor=0" th:href="@{/(cursor=${previous})}" th:text="#{start.table.previous}">Previous</a></td>
+			<td th:unless="${previous} == 0 or ${next} == 0"></td>
+			<td th:unless="${next} == 0"><a href="/?cursor=0" th:href="@{/(cursor=${next})}" th:text="#{start.table.next}">Next</a></td>
+		</tr>
+	</table>
+</body>
+</html>

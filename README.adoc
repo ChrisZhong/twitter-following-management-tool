@@ -1,0 +1,61 @@
+= twitter-following-management-tool
+:fork-repository: https://github.com/spring-guides/gs-accessing-twitter
+:spring-gs-accessing-twitter: https://spring.io/guides/gs/accessing-twitter/
+:spring-framework: https://projects.spring.io/spring-framework/
+:spring-boot: https://projects.spring.io/spring-boot/
+:spring-social: https://projects.spring.io/spring-social/
+:spring-social-twitter: https://projects.spring.io/spring-social-twitter/
+:gradle: https://gradle.org/
+:travis-ci: https://travis-ci.org/
+:heroku: https://heroku.com/
+
+This app is my attempt at learning more about the tools that are available:
+
+- Spring Framework ({spring-framework})
+- Spring Boot ({spring-boot})
+- Spring Social ({spring-social})
+- Spring Social Twitter ({spring-social-twitter})
+- Gradle ({gradle})
+- Travis CI ({travis-ci})
+- Heroku ({heroku})
+
+This repository started out from a fork of {fork-repository} ({spring-gs-accessing-twitter}). This is a great starting point for me to build a web application.
+
+== What does it do?
+:application-url: https://enigmatic-anchorage-9135.herokuapp.com/
+
+This is a self-contained Spring Boot application that accesses profile data from a Twitter user and from people whom the user follows on Twitter (i.e., friends).
+
+Currently, it just shows the most recent 20 friends of the user.
+
+The application can be accessed at {application-url}.
+
+=== Coming soon
+
+The following features have yet to be implemented (in no particular order):
+
+- Show the time since the last tweet of the user's friends
+- Navigate through all friends of the user
+- Remembering authorization given by a Twitter user
+
+== What you'll need to build
+:java-version: 1.8
+:jdk: http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK {java-version}]
+:spring-gs-register-twitter-app: https://spring.io/guides/gs/register-twitter-app/
+:application-properties: src/main/resources/application.properties
+:application-properties-url: https://github.com/ChrisZhong/twitter-following-management-tool/blob/master/{application-properties}[application.properties]
+
+If you would like to build your this application, you will need the following:
+
+- {jdk}
+- Your own keys from Twitter (a guide can be {spring-gs-register-twitter-app})
+
+Once both requirements are met, start by including the keys in the {application-properties-url} ({application-properties}) file.
+
+[source,properties]
+----
+spring.social.twitter.appId={{put app ID here}}
+spring.social.twitter.appSecret={{put app secret here}}
+----
+
+== Summary
