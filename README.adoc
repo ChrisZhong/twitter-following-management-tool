@@ -1,5 +1,5 @@
 = twitter-following-management-tool
-:fork-repository: https://github.com/spring-guides/gs-accessing-twitter
+:sample-repository: https://github.com/spring-guides/gs-accessing-twitter
 :spring-gs-accessing-twitter: https://spring.io/guides/gs/accessing-twitter/
 :spring-framework: https://projects.spring.io/spring-framework/
 :spring-boot: https://projects.spring.io/spring-boot/
@@ -9,24 +9,29 @@
 :travis-ci: https://travis-ci.org/
 :heroku: https://heroku.com/
 
-This app is my attempt at learning more about the tools that are available:
+image:https://travis-ci.org/ChrisZhong/twitter-following-management-tool.svg?branch=master["Build Status", link="https://travis-ci.org/ChrisZhong/twitter-following-management-tool"]
+
+Building this simple web app is my attempt to learning more about the continuous delivery process using existing tools/libraries/frameworks. The code in this repository is heavily based on {sample-repository} ({spring-gs-accessing-twitter}), which is a great starting point for me.
+
+=== Libraries
 
 - Spring Framework ({spring-framework})
 - Spring Boot ({spring-boot})
 - Spring Social ({spring-social})
 - Spring Social Twitter ({spring-social-twitter})
+
+=== Tools
+
 - Gradle ({gradle})
 - Travis CI ({travis-ci})
 - Heroku ({heroku})
 
-This repository started out from a fork of {fork-repository} ({spring-gs-accessing-twitter}). This is a great starting point for me to build a web application.
-
 == What does it do?
 :application-url: https://enigmatic-anchorage-9135.herokuapp.com/
 
-This is a self-contained Spring Boot application that accesses profile data from a Twitter user and from people whom the user follows on Twitter (i.e., friends).
+This is a self-contained Spring Boot application that accesses profile data of a Twitter user and a list of people that user is following.
 
-Currently, it just shows the most recent 20 friends of the user.
+Currently, it just shows the first 20 friends of a user.
 
 The application can be accessed at {application-url}.
 
